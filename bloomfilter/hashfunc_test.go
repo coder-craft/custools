@@ -13,7 +13,7 @@ func TestBKDRHashSeed(t *testing.T) {
 		{17, 1313131313131313131},
 	}
 	for _, value := range testData {
-		if value[1] != BKDRHashSeed(value[0]) {
+		if value[1] != bKDRHashSeed(value[0]) {
 			t.Errorf("Test data %v-%v failed", value[0], value[1])
 			t.Fatal("TestBKDRHashSeed error.")
 		}
@@ -26,6 +26,6 @@ func TestBKDRHash(t *testing.T) {
 		testData = append(testData, string(StrRand(rand.Intn(1000))))
 	}
 	for _, value := range testData {
-		BKDRHash(value, rand.Int63n(9))
+		bKDRHash(value, rand.Int63n(9),rand.Int63n(36919))
 	}
 }
